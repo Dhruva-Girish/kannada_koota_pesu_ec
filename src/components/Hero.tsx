@@ -8,14 +8,13 @@ interface HeroProps {
 // MarqueeImages component with sliding effect
 function MarqueeImages() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  // Sample images (replace with your actual image paths)
+
   const images = [
     // "Hero/KK1.jpeg",
     "Hero/KKEC X RT 1.JPG",
     "Hero/KKEC X RT 3.JPG",
     "Hero/KKEC DC 1.jpg",
-    "Hero/TM 1.jpg"
+    // "Hero/TM 1.jpg"
   ];
 
   useEffect(() => {
@@ -105,13 +104,13 @@ export default function Hero({ title = 'ಕನ್ನಡ ಕೂಟ EC PES' }: Her
               >
                 Learn More About Us
               </Button>
-              <Button 
+              {/* <Button 
                 variant="outline"
                 className="px-6 py-3 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 size="lg"
               >
                 <a href="/Hero">View Hero</a>
-              </Button>
+              </Button> */}
             </div>
 
             {/* Stats */}

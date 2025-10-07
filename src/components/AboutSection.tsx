@@ -15,7 +15,7 @@ export default function AboutSection() {
           <div className="relative animate-fade-in-up">
             <div className="relative">
               <img
-                src="/DomainHeads/group1.JPG"
+                src="/Hero/TM 2.JPG"
                 alt="Kannada Koota club members in traditional attire"
                 className="w-full h-[500px] object-cover rounded-2xl shadow-lg"
                 loading="lazy"

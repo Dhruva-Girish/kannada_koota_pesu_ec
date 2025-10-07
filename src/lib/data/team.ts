@@ -119,7 +119,7 @@ export const teamData: Record<number, Member[]> = {
     },
     {
       id: 'dh-2025-10',
-      name: 'ವಿನಯ ಕಟ್ಟನೂರು / Vinay',
+      name: 'ವಿನಯ ಕಟ್ನೂರ / Vinay',
       role: 'Domain Head', 
       domain: 'ಪ್ರಾಯೋಜಕತ್ವ / Sponsorship',
       year: 2025,
@@ -145,16 +145,16 @@ export const teamData: Record<number, Member[]> = {
       linkedin: 'https://www.linkedin.com/in/srujan-kashyap-s-610944282',
       instagram: 'https://www.instagram.com/srujan.kashyap._',
     },
-    // {
-    //   id: 'dh-2025-13',
-    //   name: ' / Ruchitha',
-    //   role: 'Domain Head', 
-    //   domain: '',
-    //   year: 2025,
-    //   photo: '/DomainHeads/ruchitha.JPG',
-    //   linkedin: '',
-    //   instagram: '',
-    // },
+    {
+      id: 'dh-2025-13',
+      name: 'ರುಚಿತಾ / Ruchitha',
+      role: 'Domain Head', 
+      domain: ' (ಸಾರ್ವಜನಿಕ ಸಂಪರ್ಕಗಳು / Public Relations',
+      year: 2025,
+      photo: '/DomainHeads/ruchitha.JPG',
+      linkedin: 'https://www.linkedin.com/in/ruchitha-m-334681315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      instagram: 'https://www.instagram.com/itz_ruchi103?igsh=MW92MGlhc3l2emg0YQ==',
+    },
   ],
   2024: [
     {
