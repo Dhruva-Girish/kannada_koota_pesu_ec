@@ -144,7 +144,7 @@ export default function AboutSection() {
                 {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </Button>
               <Button className="btn-accent" asChild>
-                <a href="/team">Meet Our Team</a>
+                <a href="#team">Meet Our Team</a>
               </Button>
             </div>
           </div>
