@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp, Users, Calendar, Heart, Award } from 'lucide-react';
 
@@ -144,7 +145,7 @@ export default function AboutSection() {
                 {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </Button>
               <Button className="btn-accent" asChild>
-                <a href="#team">Meet Our Team</a>
+                <Link to="/team">Meet Our Team</Link>
               </Button>
             </div>
           </div>
