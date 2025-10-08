@@ -149,7 +149,7 @@ export const teamData: Record<number, Member[]> = {
       id: 'dh-2025-13',
       name: 'ರುಚಿತ / Ruchitha',
       role: 'Domain Head', 
-      domain: ' (ಸಾರ್ವಜನಿಕ ಸಂಪರ್ಕಗಳು / Public Relations',
+      domain: ' ಸಾರ್ವಜನಿಕ ಸಂಪರ್ಕಗಳು / Public Relations',
       year: 2025,
       photo: '/DomainHeads/ruchitha.JPG',
       linkedin: 'https://www.linkedin.com/in/ruchitha-m-334681315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
