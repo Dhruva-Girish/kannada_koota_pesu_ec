@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import TeamCard from '@/components/TeamCard';
 import {
   getAllYears,
@@ -120,7 +121,7 @@ export default function Team() {
             We are always looking for passionate individuals to contribute to our mission.
           </p>
           <Button className="btn-hero" size="lg" asChild>
-            <a href="/contact">Contact Us</a>
+            <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
       </section>

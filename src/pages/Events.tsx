@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import EventCard from '@/components/EventCard';
 import { events, getUpcomingEvents, getPastEvents } from '@/lib/data/events';
 import { Calendar, Filter } from 'lucide-react';
@@ -148,7 +149,7 @@ export default function Events() {
             Have an idea for a cultural event or workshop? We'd love to hear from you!
           </p>
           <Button className="btn-hero" size="lg" asChild>
-            <a href="/contact">Get in Touch</a>
+            <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>
       </section>
