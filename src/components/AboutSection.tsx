@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp, Users, Calendar, Heart, Award } from 'lucide-react';
+import * as Collapsible from '@radix-ui/react-collapsible';
 
 export default function AboutSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -81,7 +82,7 @@ export default function AboutSection() {
             </div>
 
             {/* Main Description */}
-            <div className="prose prose-gray max-w-none">
+            <Collapsible.Root open={isExpanded} onOpenChange={setIsExpanded} className="prose prose-gray max-w-none">
               <p className="text-muted-foreground leading-relaxed">
                 Our club serves as a bridge between tradition and modernity, organizing cultural festivals, 
                 poetry workshops, traditional cooking sessions, and community outreach programs. We believe 
@@ -89,8 +90,8 @@ export default function AboutSection() {
               </p>
 
               {/* Expandable Content */}
-              <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="pt-4 space-y-4">
+              <Collapsible.Content className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="pt-4 mt-4 space-y-4">
                   <h3 className="text-xl font-semibold text-foreground">Our Mission</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     To create a platform where students can connect with their cultural roots while building 
@@ -131,23 +132,24 @@ export default function AboutSection() {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </Collapsible.Content>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                onClick={toggleExpanded}
-                variant="outline"
-                className="flex items-center space-x-2"
-              >
-                <span>{isExpanded ? 'Show Less' : 'Read More'}</span>
-                {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-              </Button>
+              <Collapsible.Trigger asChild>
+                <Button 
+                  variant="outline"
+                  className="flex items-center space-x-2"
+                >
+                  <span>{isExpanded ? 'Show Less' : 'Read More'}</span>
+                  {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </Button>
+              </Collapsible.Trigger>
               <Button className="btn-accent" asChild>
                 <Link to="/team">Meet Our Team</Link>
               </Button>
             </div>
+            </Collapsible.Root>
           </div>
         </div>
       </div>

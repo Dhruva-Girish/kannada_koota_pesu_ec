@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { StatsigProvider, useStatsigClient } from "@statsig/react-bindings";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,9 +14,22 @@ import Upis from "./pages/Upis";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
+// Create a query client instance
 const queryClient = new QueryClient();
 
-const App = () => (
+// Logging component for Statsig events
+function StatsigLogger() {
+  const { client } = useStatsigClient();
+
+  useEffect(() => {
+    // Log when the app loads
+    client.logEvent("app_loaded");
+  }, [client]);
+
+  return null; // no UI, just runs logic
+}
+
+const AppContent = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -37,6 +52,14 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+);
+
+const App = () => (
+  // ✅ Wrap entire app with StatsigProvider
+  <StatsigProvider sdkKey="client-xxxxxx" user={{ userID: "SharathGowda" }}>
+    <StatsigLogger /> {/* Logs event when app starts */}
+    <AppContent />
+  </StatsigProvider>
 );
 
 export default App;

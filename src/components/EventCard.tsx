@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import * as Collapsible from '@radix-ui/react-collapsible';
 import { Event } from '@/lib/data/events';
 
 interface EventCardProps {
@@ -34,7 +35,7 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
     : 'card-elevated card-hover';
 
   return (
-    <div className={cardClasses}>
+    <Collapsible.Root open={isExpanded} onOpenChange={setIsExpanded} className={cardClasses}>
       <div className={`p-6 ${featured ? 'lg:flex lg:space-x-6' : ''}`}>
         {/* Image */}
         <div className={`relative overflow-hidden rounded-lg ${featured ? 'lg:w-1/2' : ''}`}>
@@ -88,8 +89,8 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
           </p>
 
           {/* Expandable Details */}
-          <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="pt-4 border-t border-border space-y-4">
+          <Collapsible.Content className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="pt-4 mt-4 border-t border-border space-y-4">
               {/* <div>
                 <h4 className="font-semibold text-foreground mb-2">Event Details</h4>
                 <div className="prose prose-sm max-w-none text-muted-foreground">
@@ -123,12 +124,12 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
                 </div>
               )}
             </div>
-          </div>
+          </Collapsible.Content>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-3 pt-2">
-            <Button
-              onClick={() => setIsExpanded(!isExpanded)}
+            <Collapsible.Trigger asChild>
+              <Button
               variant="outline"
               size="sm"
               className="flex items-center space-x-1"
@@ -136,6 +137,7 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
               <span>{isExpanded ? 'Show Less' : 'Read More'}</span>
               {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
             </Button>
+            </Collapsible.Trigger>
             
             {/* {event.status === 'upcoming' && (
               <Button size="sm" className="btn-accent flex items-center space-x-1">
@@ -146,6 +148,6 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </Collapsible.Root>
   );
 }
