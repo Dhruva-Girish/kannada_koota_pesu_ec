@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <img src="/public/KKCEC-ECON.png" alt="Kannada Koota Logo" className="h-8 w-auto" />
+            <img src="/KKCEC-ECON.png" alt="Kannada Koota Logo" className="h-8 w-auto" />
             <span className="font-bold text-lg hidden sm:block">Kannada Koota EC PES</span>
             <span className="font-bold text-lg sm:hidden">KKEC</span>
           </Link>
