@@ -27,9 +27,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm kannada-text">ಕ</span>
-            </div>
+            <img src="/public/favicon.ico" alt="Kannada Koota Logo" className="h-8 w-auto" />
             <span className="font-bold text-lg hidden sm:block">Kannada Koota EC PES</span>
             <span className="font-bold text-lg sm:hidden">KKEC</span>
           </Link>

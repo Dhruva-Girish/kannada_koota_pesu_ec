@@ -55,7 +55,7 @@ const AppContent = () => (
 );
 
 const App = () => (
-  // ✅ Wrap entire app with StatsigProvider
+  // Wrap entire app with StatsigProvider
   <StatsigProvider sdkKey="client-xxxxxx" user={{ userID: "SharathGowda" }}>
     <StatsigLogger /> {/* Logs event when app starts */}
     <AppContent />

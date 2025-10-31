@@ -45,7 +45,7 @@ export default function AboutSection() {
               <div className="flex items-center space-x-2">
                 <Calendar className="h-5 w-5 text-accent" />
                 <div>
-                  <div className="text-lg font-bold">10+</div>
+                  <div className="text-lg font-bold">5+</div>
                   <div className="text-xs text-muted-foreground">Events/Year</div>
                 </div>
               </div>
@@ -55,8 +55,8 @@ export default function AboutSection() {
           {/* Right Column - Content */}
           <div className="space-y-6 animate-slide-in-right">
             <div className="space-y-4">
-              <h2 className="text-4xl font-bold text-foreground">
-                About <span className="text-primary kannada-text">ಕನ್ನಡ ಕೂಟ</span>
+              <h2 className="text-4xl font-bold text-foreground ">
+                About <span className="text-primary kannada-text text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-400">ಕನ್ನಡ ಕೂಟ</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Kannada Koota EC PES is a vibrant cultural club dedicated to preserving and promoting the rich heritage of Karnataka. We bring together students who share a passion for Kannada language, literature, arts, and traditions.

@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.moving-gradient-text {
+  background-size: 200% 200%;
+  animation: moveGradient 4s ease-in-out infinite;
+}
