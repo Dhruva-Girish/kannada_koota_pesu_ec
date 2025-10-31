@@ -14,7 +14,7 @@ export const events: Event[] = [
   {
     id: '1',
     title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2024',
-    date: '2025-05-15',
+    date: '2025-11-07',
     status: 'upcoming',
     teaser: 'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
     image: 'Events/202k 1.png',
