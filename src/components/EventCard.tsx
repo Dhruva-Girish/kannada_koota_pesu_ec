@@ -35,7 +35,13 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
     : 'card-elevated card-hover';
 
   return (
-    <Collapsible.Root open={isExpanded} onOpenChange={setIsExpanded} className={cardClasses}>
+    <Collapsible.Root
+      open={isExpanded}
+      onOpenChange={setIsExpanded}
+      className={cardClasses}
+      data-testid={featured ? 'featured-event' : 'event-card'}
+      data-event-id={event.id}
+    >
       <div className={`p-6 ${featured ? 'lg:flex lg:space-x-6' : ''}`}>
         {/* Image */}
         <div className={`relative overflow-hidden rounded-lg ${featured ? 'lg:w-1/2' : ''}`}>
