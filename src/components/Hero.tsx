@@ -11,7 +11,8 @@ function MarqueeImages() {
 
   const images = [
     // "Hero/KK1.jpeg",
-    "Hero/KKEC X RT 1.JPG",
+    "Hero/POSTER-2025.png",
+    "Hero/P2.png",
     "Hero/KKEC X RT 3.JPG",
     "Hero/KKEC DC 1.jpg",
     // "Hero/TM 1.jpg"
