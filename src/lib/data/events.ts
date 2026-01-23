@@ -12,10 +12,6 @@ export interface Event {
  * Date-based logic:
  * - Upcoming events: event.date >= today
  * - Past events:     event.date < today
- *
- * NOTE:
- * For events with no decided date (TBA),
- * a far-future placeholder date is used.
  */
 
 export const events: Event[] = [
@@ -28,9 +24,9 @@ export const events: Event[] = [
     image: '/Events/2025.png',
     location: 'PES University EC MRD',
     gallery: [
-      'Events/BK1.png',
-      'Events/BK2.png',
-      'Events/BK3.png',
+      '/Events/BK1.png',
+      '/Events/BK2.png',
+      '/Events/BK3.png',
     ],
   },
   {
@@ -42,9 +38,9 @@ export const events: Event[] = [
     image: '/Events/2024.png',
     location: 'PES University EC MRD',
     gallery: [
-      'Events/BK1.png',
-      'Events/BK2.png',
-      'Events/BK3.png',
+      '/Events/BK1.png',
+      '/Events/BK2.png',
+      '/Events/BK3.png',
     ],
   },
   {
@@ -76,11 +72,11 @@ export const events: Event[] = [
     ],
   },
 
-  /* ---------- TBA EVENT ---------- */
+  /* ---------- UPCOMING / TBA EVENT ---------- */
   {
     id: 'club-head',
     title: 'New Crew for 2026',
-    date: '2026-02-15', // Placeholder future date
+    date: '2026-02-15',
     teaser: 'To be announced soon...',
     image: '/Events/club-head.jpg',
   },
@@ -126,3 +122,4 @@ export const getPastEvents = () => {
 
 export const getEventById = (id: string) =>
   events.find(event => event.id === id);
+
