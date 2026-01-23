@@ -9,16 +9,20 @@ export interface Event {
 }
 
 /**
+ * Date-based logic:
+ * - Upcoming events: event.date >= today
+ * - Past events:     event.date < today
+ *
  * NOTE:
- * - Upcoming Event  => event.date >= today
- * - Past Event      => event.date < today
+ * For events with no decided date (TBA),
+ * a far-future placeholder date is used.
  */
 
 export const events: Event[] = [
   {
     id: '1',
     title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2025',
-    date: '2024-11-07', // 🔴 changed to past date
+    date: '2024-11-07',
     teaser:
       'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
     image: 'Events/202k 1.png',
@@ -71,9 +75,18 @@ export const events: Event[] = [
       '/Events/KKEC DC 5.png',
     ],
   },
+
+  /* ---------- TBA EVENT ---------- */
+  {
+    id: 'club-head',
+    title: 'New Club Head',
+    date: '2099-12-31', // Placeholder future date
+    teaser: 'To be announced',
+    image: '/Events/placeholder.jpg',
+  },
 ];
 
-/* ---------------- DATE LOGIC ---------------- */
+/* ---------- DATE HELPERS ---------- */
 
 const getToday = () => {
   const today = new Date();
