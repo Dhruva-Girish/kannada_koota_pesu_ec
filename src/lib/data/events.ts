@@ -21,7 +21,7 @@ export const events: Event[] = [
     date: '2024-11-07',
     teaser:
       'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
-    image: '/Events/2025.png',
+    image: '/Events/2025.jpeg',
     location: 'PES University EC MRD',
     gallery: [
       '/Events/BK1.png',
@@ -35,7 +35,7 @@ export const events: Event[] = [
     date: '2024-11-01',
     teaser:
       'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
-    image: '/Events/2024.png',
+    image: '/Events/2024.jpeg',
     location: 'PES University EC MRD',
     gallery: [
       '/Events/BK1.png',
