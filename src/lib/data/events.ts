@@ -82,7 +82,7 @@ export const events: Event[] = [
     title: 'New Club Head',
     date: '2026-02-15', // Placeholder future date
     teaser: 'To be announced soon...',
-    image: '/Events/placeholder.jpg',
+    image: '/Events/club-head.jpg',
   },
 ];
 
