@@ -80,8 +80,8 @@ export const events: Event[] = [
   {
     id: 'club-head',
     title: 'New Club Head',
-    date: '2099-12-31', // Placeholder future date
-    teaser: 'To be announced',
+    date: '2026-02-15', // Placeholder future date
+    teaser: 'To be announced soon...',
     image: '/Events/placeholder.jpg',
   },
 ];
