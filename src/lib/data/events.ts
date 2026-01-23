@@ -79,7 +79,7 @@ export const events: Event[] = [
   /* ---------- TBA EVENT ---------- */
   {
     id: 'club-head',
-    title: 'New Club Head',
+    title: 'New Crew for 2026',
     date: '2026-02-15', // Placeholder future date
     teaser: 'To be announced soon...',
     image: '/Events/club-head.jpg',
