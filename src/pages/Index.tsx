@@ -3,71 +3,78 @@ import AboutSection from '@/components/AboutSection';
 import { useEffect, useState } from 'react';
 
 const slides = [
-  { type: 'image', src: '/events/img1.JPG' },
-  { type: 'video', poster: '/events/video-poster.png', src: '/events/home-video.mp4' },
-  { type: 'image', src: '/events/img2.JPG' },
+  '/events/img1.JPG',
+  '/events/img2.JPG',
+  '/events/img3.JPG',
 ];
 
 const Index = () => {
   const [current, setCurrent] = useState(0);
-  const [playVideo, setPlayVideo] = useState(false);
+  const [fadeIn, setFadeIn] = useState(true);
 
-  useEffect(() => {
-    if (slides[current].type === 'video') return;
-
-    const timer = setTimeout(() => {
+  const nextSlide = () => {
+    setFadeIn(false);
+    setTimeout(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-      setPlayVideo(false);
-    }, 4000);
+      setFadeIn(true);
+    }, 300);
+  };
 
+  const prevSlide = () => {
+    setFadeIn(false);
+    setTimeout(() => {
+      setCurrent((prev) =>
+        prev === 0 ? slides.length - 1 : prev - 1
+      );
+      setFadeIn(true);
+    }, 300);
+  };
+
+  // Auto slide
+  useEffect(() => {
+    const timer = setTimeout(nextSlide, 4000);
     return () => clearTimeout(timer);
   }, [current]);
 
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-    setPlayVideo(false);
-  };
-
   return (
     <div className="min-h-screen">
+      {/* Hero Section */}
       <Hero />
 
+      {/* Home Image Gallery */}
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <div className="relative h-[450px] rounded-2xl overflow-hidden shadow-lg bg-black">
 
-            {slides[current].type === 'image' ? (
-              <img
-                src={slides[current].src}
-                className="w-full h-full object-cover"
-                alt="Homepage gallery"
-              />
-            ) : playVideo ? (
-              <video
-                src={slides[current].src}
-                muted
-                autoPlay
-                controls
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div
-                className="w-full h-full bg-cover bg-center flex items-center justify-center"
-                style={{ backgroundImage: `url(${slides[current].poster})` }}
-              >
-                <button
-                  onClick={() => setPlayVideo(true)}
-                  className="bg-black/60 text-white px-6 py-3 rounded-full text-lg"
-                >
-                  ▶ Play Video
-                </button>
-              </div>
-            )}
+            {/* Image */}
+            <img
+              src={slides[current]}
+              alt="Homepage gallery"
+              className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+                fadeIn ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+
+            {/* Controls */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full text-xl"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full text-xl"
+            >
+              ›
+            </button>
 
           </div>
         </div>
       </section>
 
+      {/* About Section */}
       <AboutSection />
     </div>
   );
