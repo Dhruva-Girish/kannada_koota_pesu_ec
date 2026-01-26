@@ -1,11 +1,12 @@
-import Hero from '@/components/Hero';
-import AboutSection from '@/components/AboutSection';
-import { useEffect, useState } from 'react';
+import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
+import RepublicDayPopup from "@/components/RepublicDayPopup";
+import { useEffect, useState } from "react";
 
 const slides = [
-  '/img1.jpg',
-  '/img2.jpg',
-  '/img3.jpg',
+  "/img1.jpg",
+  "/img2.jpg",
+  "/img3.jpg",
 ];
 
 const Index = () => {
@@ -38,6 +39,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* 🇮🇳 Republic Day Popup (Jan 26 only) */}
+      <RepublicDayPopup />
+
       {/* Hero Section */}
       <Hero />
 
@@ -51,21 +55,24 @@ const Index = () => {
               src={slides[current]}
               alt="Homepage gallery"
               className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
-                fadeIn ? 'opacity-100' : 'opacity-0'
+                fadeIn ? "opacity-100" : "opacity-0"
               }`}
             />
 
-            {/* Controls */}
+            {/* Left Control */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full text-xl"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full text-xl hover:bg-black/80"
+              aria-label="Previous slide"
             >
               ‹
             </button>
 
+            {/* Right Control */}
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full text-xl"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full text-xl hover:bg-black/80"
+              aria-label="Next slide"
             >
               ›
             </button>
