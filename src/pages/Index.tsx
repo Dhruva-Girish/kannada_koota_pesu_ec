@@ -1,26 +1,65 @@
 import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
+import { useEffect, useRef, useState } from 'react';
+
+const slides = [
+  { type: 'image', src: '/Events/img1.jpg' },
+  { type: 'video', src: '/Events/home-video.mp4' },
+  { type: 'image', src: '/Events/img2.jpg' },
+];
 
 const Index = () => {
+  const [current, setCurrent] = useState(0);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // Auto slide for images
+  useEffect(() => {
+    if (slides[current].type === 'video') return;
+
+    const timer = setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [current]);
+
+  // Play video when slide is active
+  useEffect(() => {
+    if (slides[current].type === 'video' && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    }
+  }, [current]);
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <Hero />
 
-      {/* Home Page Video Section */}
+      {/* Home Media Gallery */}
       <section className="py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl shadow-lg">
-            <video
-              src="/home-video.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-auto rounded-2xl"
-            >
-              Your browser does not support the video tag.
-            </video>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="relative rounded-2xl overflow-hidden shadow-lg h-[450px]">
+            {slides[current].type === 'image' ? (
+              <img
+                src={slides[current].src}
+                alt="Homepage gallery"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <video
+                ref={videoRef}
+                src={slides[current].src}
+                muted
+                playsInline
+                onEnded={nextSlide}
+                className="w-full h-full object-cover"
+              />
+            )}
           </div>
         </div>
       </section>
@@ -32,3 +71,4 @@ const Index = () => {
 };
 
 export default Index;
+
