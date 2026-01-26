@@ -1,76 +1,125 @@
 export interface Event {
   id: string;
   title: string;
-  date: string; // ISO date
-  status: 'upcoming' | 'past';
-  teaser: string; // short explanation
+  date: string; // ISO date (YYYY-MM-DD)
+  teaser: string;
   image: string;
-  // fullDescription: string;
   location?: string;
   gallery?: string[];
 }
+
+/**
+ * Date-based logic:
+ * - Upcoming events: event.date >= today
+ * - Past events:     event.date < today
+ */
 
 export const events: Event[] = [
   {
     id: '1',
     title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2025',
-    date: '2025-11-07',
-    status: 'upcoming',
-    teaser: 'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
-    image: 'Events/202k 1.png',
-    // fullDescription: 'Kannada Rajyotsava is one of our most cherished celebrations. This year, we are organizing a magnificent event featuring:\n\n• Traditional Kannada folk dances and music performances\n• Classical dance recitals by club members\n• Poetry recitation in Kannada\n• Traditional Karnataka cuisine\n• Games and activities for all age groups\n• Cultural quiz competition\n\nCome dressed in traditional attire and be part of this wonderful celebration of our heritage and culture.',
+    date: '2024-11-07',
+    teaser:
+      'Join us in commemorating the proud occasion of Karnataka Formation Day with a vibrant and memorable celebration. The event will feature a rich showcase of cultural performances that highlight the state’s heritage, an array of authentic traditional cuisine reflecting Karnataka’s diverse flavors, and a warm community gathering that brings people together in the true spirit of unity and tradition.',
+    image: '/Events/2025.jpeg',
     location: 'PES University EC MRD',
     gallery: [
-     "Events/BK1.png",
-     "Events/BK2.png",
-     "Events/BK3.png",
-    ]
-  },
-  {
-    id: '',
-    title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2024',
-    date: '2025-11-07',
-    status: 'upcoming',
-    teaser: 'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
-    image: 'Events/202k 1.png',
-    // fullDescription: 'Kannada Rajyotsava is one of our most cherished celebrations. This year, we are organizing a magnificent event featuring:\n\n• Traditional Kannada folk dances and music performances\n• Classical dance recitals by club members\n• Poetry recitation in Kannada\n• Traditional Karnataka cuisine\n• Games and activities for all age groups\n• Cultural quiz competition\n\nCome dressed in traditional attire and be part of this wonderful celebration of our heritage and culture.',
-    location: 'PES University EC MRD',
-    gallery: [
-     "Events/BK1.png",
-     "Events/BK2.png",
-     "Events/BK3.png",
-    ]
+      '/Events/BK1.png',
+      '/Events/BK2.png',
+      '/Events/BK3.png',
+    ],
   },
   {
     id: '2',
+    title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2024',
+    date: '2024-11-01',
+    teaser:
+      'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
+    image: '/Events/2024.jpeg',
+    location: 'PES University EC MRD',
+    gallery: [
+      '/Events/BK1.png',
+      '/Events/BK2.png',
+      '/Events/BK3.png',
+    ],
+  },
+  {
+    id: '3',
     title: 'Kannada Koota X Rotaract',
-    date: '2025-09-03',
-    status: 'past',
-    teaser: 'Learn Kannada with us in a fun and engaging way through games, drama, and interactive activities. It’s all about enjoying the language while building connections and culture.',
+    date: '2023-09-03',
+    teaser:
+      'Learn Kannada with us in a fun and engaging way through games, drama, and interactive activities. It’s all about enjoying the language while building connections and culture.',
     image: '/Events/KKEC X RT 1.JPG',
     location: 'Seminar Hall 2',
     gallery: [
       '/Events/KKEC X RT 4.JPG',
       '/Events/KKEC X RT 3.JPG',
-      '/Events/KKEC X RT 2.JPG'
-    ]
+      '/Events/KKEC X RT 2.JPG',
+    ],
   },
   {
-    id: '3',
+    id: '4',
     title: 'Quadrangle Dance',
-    date: '2025-09-10',
-    status: 'past',
-    teaser: 'We performed a lively dance in the quadrangle to welcome the new students and showcase our rich Kannada culture. It was a joyful way to bring our community together and share the spirit of unity.',
+    date: '2023-09-10',
+    teaser:
+      'We performed a lively dance in the quadrangle to welcome the new students and showcase our rich Kannada culture.',
     image: '/Events/KKEC DC 1.jpg',
     location: 'Quadrangle PES EC',
     gallery: [
       '/Events/KKEC DC 2.jpg',
       '/Events/KKEC DC 3.png',
       '/Events/KKEC DC 5.png',
-        ]
+    ],
+  },
+
+  /* ---------- UPCOMING / TBA EVENT ---------- */
+  {
+    id: 'club-head',
+    title: 'New Crew for 2026',
+    date: '2026-02-15',
+    teaser: 'To be announced soon...',
+    image: '/Events/club-head.jpg',
   },
 ];
 
-export const getUpcomingEvents = () => events.filter(event => event.status === 'upcoming');
-export const getPastEvents = () => events.filter(event => event.status === 'past');
-export const getEventById = (id: string) => events.find(event => event.id === id);
+/* ---------- DATE HELPERS ---------- */
+
+const getToday = () => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return today;
+};
+
+export const getUpcomingEvents = () => {
+  const today = getToday();
+
+  return events
+    .filter(event => {
+      const eventDate = new Date(event.date);
+      eventDate.setHours(0, 0, 0, 0);
+      return eventDate >= today;
+    })
+    .sort(
+      (a, b) =>
+        new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+};
+
+export const getPastEvents = () => {
+  const today = getToday();
+
+  return events
+    .filter(event => {
+      const eventDate = new Date(event.date);
+      eventDate.setHours(0, 0, 0, 0);
+      return eventDate < today;
+    })
+    .sort(
+      (a, b) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+};
+
+export const getEventById = (id: string) =>
+  events.find(event => event.id === id);
+
