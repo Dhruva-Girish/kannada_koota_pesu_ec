@@ -11,9 +11,9 @@ function MarqueeImages() {
 
   const images = [
   '/img4.jpg',
-  '/Hero/p2.png',
-  '/Hero/kkecrt3.jpg',
-  '/Hero/kkecdc1.jpg',
+  '/Hero/KKEC1.jpg',
+  '/Hero/KKEC2.jpg',
+  '/Hero/KKEC3.jpg',
   // add more later if needed
 ];
 
