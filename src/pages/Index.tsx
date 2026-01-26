@@ -3,9 +3,9 @@ import AboutSection from '@/components/AboutSection';
 import { useEffect, useRef, useState } from 'react';
 
 const slides = [
-  { type: 'image', src: '/events/img1.JPG' },
+  { type: 'image', src: '/events/img1.jpg' },
   { type: 'video', src: '/events/home-video.mp4' },
-  { type: 'image', src: '/events/img2.JPG' },
+  { type: 'image', src: '/events/img2.jpg' },
 ];
 
 const Index = () => {
