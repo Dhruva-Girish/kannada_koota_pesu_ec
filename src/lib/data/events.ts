@@ -46,7 +46,7 @@ export const events: Event[] = [
   {
     id: '3',
     title: 'Kannada Koota X Rotaract',
-    date: '2023-09-03',
+    date: '2025-09-03',
     teaser:
       'Learn Kannada with us in a fun and engaging way through games, drama, and interactive activities. It’s all about enjoying the language while building connections and culture.',
     image: '/Events/KKEC X RT 1.JPG',
@@ -60,7 +60,7 @@ export const events: Event[] = [
   {
     id: '4',
     title: 'Quadrangle Dance',
-    date: '2023-09-10',
+    date: '2025-09-10',
     teaser:
       'We performed a lively dance in the quadrangle to welcome the new students and showcase our rich Kannada culture.',
     image: '/Events/KKEC DC 1.jpg',
