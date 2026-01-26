@@ -3,9 +3,9 @@ import AboutSection from '@/components/AboutSection';
 import { useEffect, useRef, useState } from 'react';
 
 const slides = [
-  { type: 'image', src: '/Events/img1.JPG' },
-  { type: 'video', src: '/Events/home-video.mp4' },
-  { type: 'image', src: '/Events/img2.JPG' },
+  { type: 'image', src: '/events/img1.JPG' },
+  { type: 'video', src: '/events/home-video.mp4' },
+  { type: 'image', src: '/events/img2.JPG' },
 ];
 
 const Index = () => {
@@ -37,7 +37,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero */}
       <Hero />
 
       {/* Home Media Gallery */}
@@ -64,7 +64,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About */}
       <AboutSection />
     </div>
   );
