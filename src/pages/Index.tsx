@@ -2,10 +2,8 @@ import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
 import { useEffect, useState } from 'react';
 
-const slides = [
-  '/events/img1.jpg',
-  '/events/img2.jpg',
-  '/events/img3.jpg',
+cconst slides = [
+  '/img1.jpg',
 ];
 
 const Index = () => {
