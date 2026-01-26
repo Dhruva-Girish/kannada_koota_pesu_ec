@@ -10,28 +10,43 @@ const slides = [
 
 const Index = () => {
   const [current, setCurrent] = useState(0);
-  const [fade, setFade] = useState(true);
+  const [next, setNext] = useState(1);
+  const [showNext, setShowNext] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const nextSlide = () => {
-    setFade(false);
+  /* ---------- PRELOAD ALL MEDIA ---------- */
+  useEffect(() => {
+    slides.forEach(slide => {
+      if (slide.type === 'image') {
+        const img = new Image();
+        img.src = slide.src;
+      } else {
+        const video = document.createElement('video');
+        video.src = slide.src;
+        video.preload = 'auto';
+      }
+    });
+  }, []);
+
+  const goTo = (index: number) => {
+    setNext(index);
+    setShowNext(true);
+
     setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-      setFade(true);
-    }, 300);
+      setCurrent(index);
+      setShowNext(false);
+    }, 400);
+  };
+
+  const nextSlide = () => {
+    goTo((current + 1) % slides.length);
   };
 
   const prevSlide = () => {
-    setFade(false);
-    setTimeout(() => {
-      setCurrent((prev) =>
-        prev === 0 ? slides.length - 1 : prev - 1
-      );
-      setFade(true);
-    }, 300);
+    goTo(current === 0 ? slides.length - 1 : current - 1);
   };
 
-  // Auto slide for images
+  /* ---------- AUTO SLIDE FOR IMAGES ---------- */
   useEffect(() => {
     if (slides[current].type === 'video') return;
 
@@ -39,7 +54,7 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, [current]);
 
-  // Play video when active
+  /* ---------- VIDEO CONTROL ---------- */
   useEffect(() => {
     if (slides[current].type === 'video' && videoRef.current) {
       videoRef.current.currentTime = 0;
@@ -47,39 +62,49 @@ const Index = () => {
     }
   }, [current]);
 
+  const renderSlide = (index: number, ref?: any) => {
+    const slide = slides[index];
+    if (slide.type === 'image') {
+      return (
+        <img
+          src={slide.src}
+          className="w-full h-full object-cover"
+          alt="Homepage gallery"
+        />
+      );
+    }
+    return (
+      <video
+        ref={ref}
+        src={slide.src}
+        muted
+        playsInline
+        onEnded={nextSlide}
+        className="w-full h-full object-cover"
+      />
+    );
+  };
+
   return (
     <div className="min-h-screen">
-      {/* Hero */}
       <Hero />
 
-      {/* Home Media Gallery */}
+      {/* Home Gallery */}
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="relative h-[450px] rounded-2xl overflow-hidden shadow-lg bg-black">
-            {/* Slide */}
-            <div
-              className={`absolute inset-0 transition-opacity duration-300 ${
-                fade ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              {slides[current].type === 'image' ? (
-                <img
-                  src={slides[current].src}
-                  alt="Homepage gallery"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              ) : (
-                <video
-                  ref={videoRef}
-                  src={slides[current].src}
-                  muted
-                  playsInline
-                  onEnded={nextSlide}
-                  className="w-full h-full object-cover"
-                />
-              )}
+          <div className="relative h-[450px] rounded-2xl overflow-hidden shadow-lg">
+
+            {/* Current slide (always visible) */}
+            <div className="absolute inset-0">
+              {renderSlide(current, videoRef)}
             </div>
+
+            {/* Next slide (crossfade layer) */}
+            {showNext && (
+              <div className="absolute inset-0 animate-fade-in">
+                {renderSlide(next)}
+              </div>
+            )}
 
             {/* Controls */}
             <button
@@ -94,11 +119,11 @@ const Index = () => {
             >
               ›
             </button>
+
           </div>
         </div>
       </section>
 
-      {/* About */}
       <AboutSection />
     </div>
   );
