@@ -20,7 +20,7 @@ export const events: Event[] = [
     title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2025',
     date: '2024-11-07',
     teaser:
-      'oin us in commemorating the proud occasion of Karnataka Formation Day with a vibrant and memorable celebration. The event will feature a rich showcase of cultural performances that highlight the state’s heritage, an array of authentic traditional cuisine reflecting Karnataka’s diverse flavors, and a warm community gathering that brings people together in the true spirit of unity and tradition.',
+      'Join us in commemorating the proud occasion of Karnataka Formation Day with a vibrant and memorable celebration. The event will feature a rich showcase of cultural performances that highlight the state’s heritage, an array of authentic traditional cuisine reflecting Karnataka’s diverse flavors, and a warm community gathering that brings people together in the true spirit of unity and tradition.',
     image: '/Events/2025.jpeg',
     location: 'PES University EC MRD',
     gallery: [
