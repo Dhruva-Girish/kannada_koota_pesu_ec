@@ -32,7 +32,7 @@ const Index = () => {
 
   // Auto slide
   useEffect(() => {
-    const timer = setTimeout(nextSlide, 4000);
+    const timer = setTimeout(nextSlide, 3500);
     return () => clearTimeout(timer);
   }, [current]);
 
