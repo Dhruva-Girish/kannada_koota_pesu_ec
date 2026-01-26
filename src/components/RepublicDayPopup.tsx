@@ -16,16 +16,21 @@ export default function RepublicDayPopup() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-      <div className="relative bg-black rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+    <div
+  className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+  onClick={() => setShow(false)}
+>
+      <div
+  className="relative bg-black rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden"
+  onClick={(e) => e.stopPropagation()}
+>
         {/* Close button */}
         <button
-          onClick={() => setShow(false)}
-          className="absolute top-2 right-2 text-white text-xl font-bold hover:opacity-70"
-        >
-          ×
-        </button>
-
+  onClick={() => setShow(false)}
+  className="absolute top-2 right-2 bg-white/80 text-black text-xl font-bold rounded-full w-8 h-8 flex items-center justify-center hover:bg-white"
+>
+  ×
+</button>
         {/* Image */}
         <img
           src="/republic-day.jpg"
