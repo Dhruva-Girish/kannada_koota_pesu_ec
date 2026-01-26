@@ -44,7 +44,7 @@ export default function RepublicDayPopup() {
             🇮🇳 Happy Republic Day 🇮🇳
           </h2>
           <p className="text-sm text-muted-foreground mt-2">
-            ಸಂವಿಧಾನ ನಮ್ಮ ಶಕ್ತಿ, ನಮ್ಮ ಹೆಮ್ಮೆ 🇮🇳
+            ಸಂವಿಧಾನ ನಮ್ಮ ಶಕ್ತಿ, ನಮ್ಮ ಹೆಮ್ಮೆ
           </p>
         </div>
       </div>
