@@ -10,12 +10,11 @@ function MarqueeImages() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    // "Hero/KK1.jpeg",
-    "Hero/P2.png",
-    "Hero/KKEC X RT 3.JPG",
-    "Hero/KKEC DC 1.jpg",
-    // "Hero/TM 1.jpg"
-  ];
+  '/hero/p2.png',
+  '/hero/kkecrt3.jpg',
+  '/hero/kkecdc1.jpg',
+  '/img4.jpg',
+];
 
   useEffect(() => {
     const interval = setInterval(() => {
