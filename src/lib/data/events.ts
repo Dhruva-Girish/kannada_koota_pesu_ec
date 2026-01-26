@@ -16,7 +16,7 @@ export const events: Event[] = [
     title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2025',
     date: '2025-11-07',
     status: 'upcoming',
-    teaser: 'Join us for a grand celebration of Karnataka Formation Day with cultural performances, traditional food, and community gathering.',
+    teaser: 'Join us in commemorating the proud occasion of Karnataka Formation Day with a vibrant and memorable celebration. The event will feature a rich showcase of cultural performances that highlight the state’s heritage, an array of authentic traditional cuisine reflecting Karnataka’s diverse flavors, and a warm community gathering that brings people together in the true spirit of unity and tradition.',
     image: 'Events/202k 1.png',
     // fullDescription: 'Kannada Rajyotsava is one of our most cherished celebrations. This year, we are organizing a magnificent event featuring:\n\n• Traditional Kannada folk dances and music performances\n• Classical dance recitals by club members\n• Poetry recitation in Kannada\n• Traditional Karnataka cuisine\n• Games and activities for all age groups\n• Cultural quiz competition\n\nCome dressed in traditional attire and be part of this wonderful celebration of our heritage and culture.',
     location: 'PES University EC MRD',
