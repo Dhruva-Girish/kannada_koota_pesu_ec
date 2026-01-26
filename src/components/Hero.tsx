@@ -13,7 +13,6 @@ function MarqueeImages() {
   '/img4.jpg',
   '/Hero/KKEC1.jpg',
   '/Hero/KKEC2.jpg',
-  '/Hero/KKEC3.jpg',
   // add more later if needed
 ];
 
