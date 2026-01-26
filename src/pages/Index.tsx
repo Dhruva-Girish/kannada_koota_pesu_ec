@@ -4,46 +4,37 @@ import { useEffect, useRef, useState } from 'react';
 
 const slides = [
   { type: 'image', src: '/events/img1.JPG' },
-  {
-    type: 'video',
-    src: '/events/home-video.mp4',
-    poster: '/events/video-poster.png',
-  },
+  { type: 'video', src: '/events/home-video.mp4' },
   { type: 'image', src: '/events/img2.JPG' },
 ];
 
 const Index = () => {
   const [current, setCurrent] = useState(0);
-  const [fadeIn, setFadeIn] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const goToSlide = (index: number) => {
-    setFadeIn(false);
-    setTimeout(() => {
-      setCurrent(index);
-      setFadeIn(true);
-    }, 350);
-  };
+  const isVideo = slides[current].type === 'video';
 
   const nextSlide = () => {
-    goToSlide((current + 1) % slides.length);
+    setCurrent((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
-    goToSlide(current === 0 ? slides.length - 1 : current - 1);
+    setCurrent((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
   };
 
-  // Auto-slide for images
+  // Auto-slide images
   useEffect(() => {
-    if (slides[current].type === 'video') return;
+    if (isVideo) return;
 
     const timer = setTimeout(nextSlide, 4000);
     return () => clearTimeout(timer);
   }, [current]);
 
-  // Play video when active
+  // Control video
   useEffect(() => {
-    if (slides[current].type === 'video' && videoRef.current) {
+    if (isVideo && videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play();
     }
@@ -51,36 +42,32 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
       <Hero />
 
-      {/* Smooth Home Gallery */}
+      {/* Media Gallery */}
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="relative h-[450px] rounded-2xl overflow-hidden shadow-lg bg-black">
-            <div
-              className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-                fadeIn ? 'opacity-100' : 'opacity-0'
+          <div
+            className="relative h-[450px] rounded-2xl overflow-hidden shadow-lg bg-black transition-all duration-500"
+            style={{
+              backgroundImage: !isVideo
+                ? `url(${slides[current].src})`
+                : `url(/events/video-poster.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            {/* Video always mounted */}
+            <video
+              ref={videoRef}
+              src="/events/home-video.mp4"
+              muted
+              playsInline
+              onEnded={nextSlide}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                isVideo ? 'opacity-100' : 'opacity-0'
               }`}
-            >
-              {slides[current].type === 'image' ? (
-                <img
-                  src={slides[current].src}
-                  alt="Homepage gallery"
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <video
-                  ref={videoRef}
-                  src={slides[current].src}
-                  poster={slides[current].poster}
-                  muted
-                  playsInline
-                  onEnded={nextSlide}
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </div>
+            />
 
             {/* Controls */}
             <button
@@ -99,7 +86,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About */}
       <AboutSection />
     </div>
   );
