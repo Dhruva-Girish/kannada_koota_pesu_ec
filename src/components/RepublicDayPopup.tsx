@@ -28,7 +28,7 @@ export default function RepublicDayPopup() {
 
         {/* Image */}
         <img
-          src="/republic-day.png"
+          src="/republic-day.jpg"
           alt="Happy Republic Day"
           className="w-full object-cover"
         />
@@ -39,7 +39,7 @@ export default function RepublicDayPopup() {
             🇮🇳 Happy Republic Day 🇮🇳
           </h2>
           <p className="text-sm text-muted-foreground mt-2">
-            Celebrating the spirit of our Constitution
+            ಸಂವಿಧಾನ ನಮ್ಮ ಶಕ್ತಿ, ನಮ್ಮ ಹೆಮ್ಮೆ 🇮🇳
           </p>
         </div>
       </div>
