@@ -2,7 +2,7 @@ import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
 import { useEffect, useState } from 'react';
 
-cconst slides = [
+const slides = [
   '/img1.jpg',
 ];
 
