@@ -2,17 +2,17 @@ const videos = [
   {
     id: 1,
     title: "Blog 1",
-    src: "/videos/blog1.mp4",
+    src: "/blog1.mp4",
   },
   {
     id: 2,
     title: "Blog 2",
-    src: "/videos/blog2.mp4",
+    src: "/blog2.mp4",
   },
   {
     id: 3,
     title: "Blog 3",
-    src: "/videos/blog3.mp4",
+    src: "/blog3.mp4",
   },
 ];
 
