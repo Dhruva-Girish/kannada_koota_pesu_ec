@@ -20,8 +20,8 @@ export const events: Event[] = [
     title: 'ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ Celebration 2025',
     date: '2025-11-07',
     teaser:
-      'Come celebrate Karnataka Rajyotsava with us for a day of local performances and community spirit.',
-    image: '/Events/2025.jpeg',
+      'Join us in commemorating the proud occasion of Karnataka Formation Day with a vibrant and memorable celebration. The event will feature a rich showcase of cultural performances, authentic traditional cuisine, and a warm community gathering.',
+    image: '/Events/202k 1.png',
     location: 'PES University EC MRD',
     gallery: [
       '/Events/BK1.png',
@@ -48,7 +48,7 @@ export const events: Event[] = [
     title: 'Kannada Koota X Rotaract',
     date: '2025-09-03',
     teaser:
-      'Learn Kannada with us in a fun and engaging way through games, drama, and interactive activities. It’s all about enjoying the language while building connections and culture.',
+      'Learn Kannada with us in a fun and engaging way through games, drama, and interactive activities.',
     image: '/Events/KKEC X RT 1.JPG',
     location: 'Seminar Hall 2',
     gallery: [
@@ -71,8 +71,6 @@ export const events: Event[] = [
       '/Events/KKEC DC 5.png',
     ],
   },
-
-  /* ---------- UPCOMING / TBA EVENT ---------- */
   {
     id: 'club-head',
     title: 'New Crew for 2026',
@@ -122,4 +120,3 @@ export const getPastEvents = () => {
 
 export const getEventById = (id: string) =>
   events.find(event => event.id === id);
-
