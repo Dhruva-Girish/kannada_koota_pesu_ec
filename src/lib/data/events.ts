@@ -74,7 +74,7 @@ export const events: Event[] = [
   {
     id: 'club-head',
     title: 'New Crew for 2026',
-    date: '2026-02-15',
+    date: '2026-02-04',
     teaser: 'To be announced soon...',
     image: '/Events/club-head.jpg',
   },
