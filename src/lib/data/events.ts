@@ -73,9 +73,9 @@ export const events: Event[] = [
   },
   {
     id: 'club-head',
-    title: 'New Crew for 2026',
+    title: 'ಹೊಸ ಚಿಗುರು New Crew for 2026',
     date: '2026-02-04',
-    teaser: 'To be announced soon...',
+    teaser: 'We are thrilled to announce a new leadership structure for our club. As we continue to push the boundaries of cultural and community engagement, we welcome a fresh board of Heads and Domain Heads.',
     image: '/Events/club-head.jpg',
   },
 ];
