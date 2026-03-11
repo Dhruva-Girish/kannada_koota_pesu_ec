@@ -78,6 +78,15 @@ export const events: Event[] = [
     teaser: 'We are thrilled to announce a new leadership structure for our club. As we continue to push the boundaries of cultural and community engagement, we welcome a fresh board of Heads and Domain Heads.',
     image: '/Events/club-head.jpg',
   },
+  {
+    id: 'mahashivratri-dance',
+    title: 'ಮಹಾ ಶಿವರಾತ್ರಿ ನೃತ್ಯ ಪ್ರದರ್ಶನು Mahashivratri Dance Performance',
+    date: '2026-02-13',
+    teaser: 'From silence to resonance,from resonance to rhythm 🎼🎼from rhythm to dance,from dance to devotion 🌟 The Kannada Koota presents a special dance performance for Mahashivratri🌀',
+    image: '/Events/mahashivratri-dance1.jpeg',
+    gallery: ['/Events/mahashivratri-dance2.jpeg',
+    ],
+  },
 ];
 
 /* ---------- DATE HELPERS ---------- */
