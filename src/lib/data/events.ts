@@ -80,7 +80,7 @@ export const events: Event[] = [
   },
   {
     id: 'mahashivratri-dance',
-    title: 'ಮಹಾ ಶಿವರಾತ್ರಿ ನೃತ್ಯ ಪ್ರದರ್ಶನು Mahashivratr Dance Performance',
+    title: 'ಮಹಾ ಶಿವರಾತ್ರಿ ನೃತ್ಯ ಪ್ರದರ್ಶನು Mahashivratri Dance Performance',
     date: '2026-02-13',
     teaser: 'From silence to resonance,from resonance to rhythm 🎼🎼from rhythm to dance,from dance to devotion 🌟 The Kannada Koota presents a special dance performance for Mahashivratri🌀',
     image: '/Events/mahashivratri-dance1.jpeg',
