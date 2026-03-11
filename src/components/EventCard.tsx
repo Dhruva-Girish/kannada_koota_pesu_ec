@@ -11,6 +11,7 @@ interface EventCardProps {
 
 export default function EventCard({ event, featured = false }: EventCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -110,11 +111,12 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
                   <h4 className="font-semibold text-foreground mb-2">Gallery</h4>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {event.gallery.slice(0, 6).map((image, index) => (
-                      <img
-                        key={index}
-                        src={image}
-                        alt={`Gallery image ${index + 1}`}
-                        className="w-full h-20 object-cover rounded border hover:opacity-80 transition-opacity cursor-pointer"
+                    <img
+                    key={index}
+                    src={image}
+                    alt={`Gallery image ${index + 1}`}
+                    onClick={() => setSelectedImage(image)}
+                    className="w-full h-20 object-cover rounded border hover:opacity-80 transition-opacity cursor-pointer"
                         loading="lazy"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
@@ -139,6 +141,17 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
                   <ChevronDown className="h-4 w-4" />
                 )}
               </Button>
+              {selectedImage && (
+              <div
+              className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+              onClick={() => setSelectedImage(null)}
+              >
+              <img
+              src={selectedImage}
+              className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
+              />
+              </div>
+              )}
             </Collapsible.Trigger>
           </div>
         </div>
