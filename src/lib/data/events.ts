@@ -88,14 +88,16 @@ export const events: Event[] = [
     ],
   },
   {
-    id: 'blood-donation',
-    title: 'ರಕ್ತ ಸ್ಪಂದನು Raktha Spandana',
-    date: '2026-03-17',
-    teaser: '“Raktha Spandana” — A drop of blood can save a life. A blood donation camp is organized by Kannada Koota. Come forward and donate the  blood. Blood donation is the noblest of all donations. Donating blood and lighting up lives is the responsibility of all of us.                   Regester now: <a href="https://forms.gle/k3aQZrJ8jMttbiDt6" target="_blank">https://forms.gle/k3aQZrJ8jMttbiDt6</a>',
-    image: '/Events/blood-donation.jpeg',
-    gallery: ['/Events/blood-donation.jpeg',
-    ],
-  },
+  id: 'blood-donation',
+  title: 'ರಕ್ತ ಸ್ಪಂದನು Raktha Spandana',
+  date: '2026-03-17',
+  teaser: '“Raktha Spandana” — A drop of blood can save a life. A blood donation camp organized by Kannada Koota. Blood donation is the noblest of all donations.',
+  image: '/Events/blood-donation.jpeg',
+  registerLink: 'https://forms.gle/k3aQZrJ8jMttbiDt6',
+  gallery: [
+    '/Events/blood-donation.jpeg'
+  ],
+},
 ];
 
 /* ---------- DATE HELPERS ---------- */
